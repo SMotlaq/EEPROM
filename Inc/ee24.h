@@ -26,10 +26,11 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include "ee24Config.h"
+#include "stm32f4xx_hal.h"
 
-bool    ee24_isConnected(void);
-bool    ee24_write(uint16_t address, uint8_t *data, size_t lenInBytes, uint32_t timeout);	
-bool    ee24_read(uint16_t address, uint8_t *data, size_t lenInBytes, uint32_t timeout);
-bool    ee24_eraseChip(void);
+bool    ee24_isConnected(I2C_HandleTypeDef* i2c);
+bool    ee24_write(I2C_HandleTypeDef* i2c, uint16_t address, uint8_t *data, size_t lenInBytes, uint32_t timeout);	
+bool    ee24_read(I2C_HandleTypeDef* i2c, uint16_t address, uint8_t *data, size_t lenInBytes, uint32_t timeout);
+bool    ee24_eraseChip(I2C_HandleTypeDef* i2c);
 
 #endif

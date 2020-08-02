@@ -23,7 +23,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "ee24.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -44,7 +44,8 @@
 I2C_HandleTypeDef hi2c1;
 
 /* USER CODE BEGIN PV */
-
+uint8_t data_write[4];
+uint8_t data_read[4];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -90,7 +91,16 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-
+	data_write[0] = 0x12;
+	data_write[1] = 0x45;
+	data_write[2] = 0xA8;
+	data_write[3] = 0x01;
+	HAL_Delay(2000);
+	if (ee24_isConnected(&hi2c1)){
+		ee24_write(&hi2c1, 0, data_write, 4, 1000);
+		HAL_Delay(1000);
+    ee24_read(&hi2c1, 0, data_read, 4, 1000);
+  }
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -169,7 +179,7 @@ static void MX_I2C1_Init(void)
 
   /* USER CODE END I2C1_Init 1 */
   hi2c1.Instance = I2C1;
-  hi2c1.Init.ClockSpeed = 100000;
+  hi2c1.Init.ClockSpeed = 400000;
   hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
   hi2c1.Init.OwnAddress1 = 0;
   hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;

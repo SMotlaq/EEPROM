@@ -3,6 +3,7 @@
 "eeprom\main.o"
 "eeprom\stm32f4xx_it.o"
 "eeprom\stm32f4xx_hal_msp.o"
+"eeprom\ee24.o"
 "eeprom\stm32f4xx_hal_i2c.o"
 "eeprom\stm32f4xx_hal_i2c_ex.o"
 "eeprom\stm32f4xx_hal_rcc.o"

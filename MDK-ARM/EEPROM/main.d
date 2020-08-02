@@ -30,3 +30,6 @@ eeprom\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h
 eeprom\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c_ex.h
 eeprom\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h
 eeprom\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
+eeprom\main.o: ../Inc/ee24.h
+eeprom\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+eeprom\main.o: ../Inc/ee24Config.h
